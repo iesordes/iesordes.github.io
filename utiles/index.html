@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+  <head>
+    <title>Inicio</title>
+    <style>
+
+
+@import url('https://fonts.cdnfonts.com/css/whitney-2');
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: whitney;
+  cursor: default;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #f5f5f5;
+}
+
+header {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+  padding: 30px 20px;
+}
+
+header svg {
+  width: 45px;
+  height: 45px;
+  stroke: #000;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1px;
+}
+
+header h1 {
+  color: #000;
+  font-size: 18px;
+}
+
+.content {
+  padding: 0px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+article {
+  margin: 5px 0px;
+  background-color: #F5F2E7;
+  position: relative;
+  color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  background: #2666cf;
+  background: linear-gradient(347deg, #090979 0%, #2666cf 100%);
+}
+
+article h3 {
+  color: #fff;
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+article > p {
+  color: #fff;
+  margin: 0px;
+  margin-top: 15px;
+  font-size: 12px;
+  text-align: justify;
+}
+
+article hr {
+  color: #fff;
+  height: .1px;
+}
+
+article button {
+  background: transparent;
+  color: #fff;
+  border: solid 1px #fff;
+  border-radius: 20px;
+  padding: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+article div.categorías p {
+  position: absolute;
+  top: 12px;
+  height: 100%;
+  font-size: 10px;
+  width: calc(100% - 40px);
+  text-align: end;
+  margin-bottom: 5px;
+  opacity: .7;
+}
+
+div.buscador {
+  margin: 0px 0px 30px 0px;
+}
+
+div.buscador input {
+  width: calc(100% - 40px);
+  border-radius: 20px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid #2666cf;
+  padding: 0px 20px;
+  color: #000
+}
+
+div.buscador input::placeholder {
+  opacity: 0.7;
+}
+
+div.buscador p {
+  color: #000
+}
+
+div.buscador ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  width: calc(100%);
+  overflow-x: scroll;
+  padding: 0px;
+  margin: 0px;
+  gap: 5px
+}
+
+div.buscador ul > li {
+  background-color: #2666cf;
+  background: linear-gradient(347deg, #090979 0%, #2666cf 100%);
+  height: 20px;
+  padding: 7.5px 20px;
+  margin: 0px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3;
+  color: #fff;
+}
+
+div.buscador ul > li.selected {
+  background-color: #2666cf;
+  background: linear-gradient(347deg, #927700 0%, #fee528 100%);
+  color: #000;
+  height: 20px;
+  padding: 7.5px 20px;
+  margin: 0px;
+  border-radius: 20px;
+}
+
+article.hidden {
+  visibility: hidden;
+  height: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+    </style>
+
+<script>
+
+function start(){
+  categories = document.querySelectorAll("div.buscador ul > li")
+  x = 0
+  for (x=0;x<categories.length; x++){
+    categories[x].addEventListener("click", function(){
+      this.classList.toggle("selected")
+      search()
+    })
+  }
+  input = document.querySelector("div.buscador input")
+  input.addEventListener("input", search)
+}
+
+function search(){
+  categ = []
+  categories = document.querySelectorAll("div.buscador ul > li")
+  x = 0
+  for (x=0;x<categories.length; x++){
+    if (categories[x].classList.contains("selected")){
+      categ.push(categories[x].innerHTML)
+    }
+  }
+  articles = document.querySelectorAll("article")
+  input = document.querySelector("div.buscador input")
+  x = 0
+  for (x=0;x<articles.length;x++){
+    showClass = false
+    showInput = false
+    y = 0
+    for (y=0;y<articles[x].childNodes.length;y++){
+      child = articles[x].childNodes[y]
+      if (child.classList){
+        if (child.classList.contains("categorías")) {
+          i = 0
+          for (i=0;i<categ.length;i++){
+            if (child.innerHTML.trim().toLowerCase().includes(categ[i].toLowerCase())){
+              showClass = true
+            } else {
+              showClass = false
+              break
+            }
+          }
+        } else {
+          if(child.localName=="h3"){
+            if(child.innerHTML.toLowerCase().includes(input.value.toLowerCase())){
+              showInput = true
+            }
+          }
+        }
+      }
+    }
+    if (input.value == "") {
+      showInput = true
+    }
+    if (categ.length == 0) {
+      showClass = true
+    }
+    if (showClass && showInput) {
+      articles[x].classList.remove("hidden")
+    } else {
+      articles[x].classList.add("hidden")
+    }
+  }
+}
+
+</script>
+
+  </head>
+  <body onload="document.oncontextmenu = function () { return false }; start()">
+    <header>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="opacity: 0">
+        <path d="m6 9 6 6 6-6H6Z"></path>
+      </svg>
+      <h1>Útiles</h1>
+      <a href="go:axuda">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"></path>
+          <path d="M12 17v.01"></path>
+          <path d="M12 13.497a1.5 1.5 0 0 1 1-1.5 2.6 2.6 0 1 0-3-4"></path>
+        </svg>
+      </a>
+    </header>
+    <div class="content">
+      <div class="buscador">
+        <p>Estamos a traballar nesto</p>
+        <input type="text" placeholder="Buscador...">
+        <p>Categorías:</p>
+        <ul>
+          <li class="">Alumnado</li>
+          <li>Ausencias</li>
+          <li>Dereitos</li>
+          <li>Exames</li>
+          <li>Normas</li>
+          <li>Obrigacións</li>
+        </ul>
+      </div>
+      <article>
+        <div class="categorías">
+          <p>Normas • Alumnado • Dereitos</p>
+        </div>
+        <h3>Artigo 4.f nofc</h3>
+        <p>As alumnas e os alumnos teñen dereito a:<br>Coñecer os resultados e as cualificacións das probas realizadas e traballos entregados para a súa cualificación, e a que lles mostren as correccións oportunas e a recibir explicacións sobre as cualificacións outorgadas nun prazo máximo de 15 días contados a partir da data de realización ou entrega do mesmo.</p>
+      </article>
+      <article>
+        <div class="categorías">
+          <p>Normas • Alumnado • Obrigacións</p>
+        </div>
+        <h3>Artigo 5.13 nofc</h3>
+        <p>Son deberes básicos do alumnado:<br>Deixar recollido todo o seu material, equipo persoal e lugar de traballo, ao remataren as clases. Ademais deberá colocar a cadeira enriba da mesa para facilitar as tarefas de limpeza.</p>
+      </article>
+        <article>
+          <div class="categorías">
+            <p>Normas • Alumnado • Exames</p>
+          </div>
+          <h3>Artigo 54.1 NOFC</h3>
+          <p>O calendario de exames debe elaborarse consensuadamente entre o profesorado e o alumnado.</p>
+        </article>
+        <article>
+          <div class="categorías">
+            <p>Normas • Alumnado • Exames</p>
+          </div>
+          <h3>Artigo 54.7 NOFC</h3>
+          <p>Como norma xeral, non se programará máis dun exame por día, agás nos dez días lectivos inmediata-
+            mente anteriores á sesión de avaliación, nos que se poderán programar un máximo de dous por día.</p>
+        </article>
+        <article>
+          <div class="categorías">
+            <p>Normas • Procedementos • Ausencias</p>
+          </div>
+          <h3>artigo 61.1.a</h3>
+          <p>Cando se produzan ausencias de docentes que tivesen clase, a profesora ou o profesor de garda procederá do seguinte xeito:<br>Verlará porque os alumnos e alumnas realicen as tarefas que lles deixou asignadas o profesor ou profesora ausente, se é o caso.</p>
+        </article>
+        <article>
+          <div class="categorías">
+            <p>Normas • Procedementos • Ausencias</p>
+          </div>
+          <h3>artigo 61.1.b</h3>
+          <p>Cando se produzan ausencias de docentes que tivesen clase, a profesora ou o profesor de garda procederá do seguinte xeito:<br>Se o profesorado ausente non deixou traballo asignado, tomará as medidas necesarias para que as alumnas e os alumnos permanezan traballando dentro da aula sen interferir nas actividades dos demais grupos do centro</p>
+        </article>
+        <!--
+        <article>
+          <div class="categorías">
+            <p></p>
+          </div>
+          <h3></h3>
+          <p></p>
+        </article>
+      -->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <head>
+    <title>Inicio</title>
+    <style>
+
+@import url('https://fonts.cdnfonts.com/css/whitney-2');
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: whitney;
+  cursor: default;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #f5f5f5;
+}
+
+header {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+  padding: 30px 20px;
+}
+
+header svg {
+  width: 45px;
+  height: 45px;
+  stroke: #000;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1px;
+}
+
+header h1 {
+  color: #000;
+  font-size: 18px;
+}
+
+form {
+  padding: 0px 15px;
+}
+
+
+
+    </style>
+  </head>
+  <body onload="document.oncontextmenu = function () { return false }">
+    <header>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="opacity: 0">
+        <path d="m6 9 6 6 6-6H6Z"></path>
+      </svg>
+      <h1>Contacto</h1>
+      <a href="go:axuda">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"></path>
+          <path d="M12 17v.01"></path>
+          <path d="M12 13.497a1.5 1.5 0 0 1 1-1.5 2.6 2.6 0 1 0-3-4"></path>
+        </svg>
+      </a>
+    </header>
+    <form>
+        <label id="q1">
+            <p>Porqué quere contactar connosco?</p>
+            <select>
+                <option>Solicitar información</option>
+                <option>Propoñer unha suxerencia</option>
+                <option>Transmitir unha queixa miña</option>
+                <option>Transmitir unha queixa do meu grupo/clase</option>
+                <option>Informar dun erro</option>
+                <option>Outro</option>
+            </select>
+        </label>
+        <label id="q2">
+            <p>Qué clase información desexa solicitar?</p>
+            <select>
+                <option>NOFC (Normativa)</option>
+                <option>Delegados</option>
+                <option>Profesorado</option>
+                <option>Outro</option>
+            </select>
+        </label>
+        <label id="q3">
+            <p>A quén desexa dirixir esta suxerencia?</p>
+            <select>
+                <option>Presidente dos delegados</option>
+                <option>Consello escolar</option>
+                <option>Desenvolvedores do aplicativo</option>
+            </select>
+        </label>
+        <label id="q4">
+            <p></p>
+        </label>
+    </form>
+  </body>
+</html>

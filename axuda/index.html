@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+  <head>
+    <title>Inicio</title>
+    <style>
+
+@import url('https://fonts.cdnfonts.com/css/whitney-2');
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: whitney;
+  cursor: default;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #f5f5f5;
+}
+
+header {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+  padding: 30px 20px;
+}
+
+header svg {
+  width: 45px;
+  height: 45px;
+  stroke: #000;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1px;
+}
+
+header h1 {
+  color: #000;
+  font-size: 18px;
+}
+
+.content {
+  padding: 0px 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+div.content div a svg {
+  height: 45px;
+  width: 45px;
+  stroke: #000;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  margin: auto;
+}
+
+div.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 50px;
+  color: #000;
+}
+
+div.content div span {
+  font-style: italic;
+}
+
+div.content div .important {
+  border: 2px solid red;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+div.content div ul.num {
+  list-style: decimal;
+}
+
+    </style>
+  </head>
+  <body onload="document.oncontextmenu = function () { return false }">
+    <header>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="opacity: 0">
+        <path d="m6 9 6 6 6-6H6Z"></path>
+      </svg>
+      <h1>Axuda</h1>
+      <a style="opacity: 0.2">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"></path>
+          <path d="M12 17v.01"></path>
+          <path d="M12 13.497a1.5 1.5 0 0 1 1-1.5 2.6 2.6 0 1 0-3-4"></path>
+        </svg>
+      </a>
+    </header>
+    <div class="content">
+      <div>
+        <h3>Como instalar o aplicativo?</h3>
+        <p>Este aplicativo é instalado grazas a un arquivo <q>.apk</q><br>Pode descargar este aquivo a facendo click <a href="https://cdn.discordapp.com/attachments/1059118174810935387/1059118296739369000/app-ordes.apk">aquí</a>.</p>
+        <p>Unha vez teña o arquivo, debe vostede seguir as seguintes instruccións de instalación:
+          <ul class="num">
+            <li>Abra o arquivo.</li>
+            <li>Se o explorador de arquivos do seu dispositivo non ten permisos para instalar aplicativos de orixe descoñecida, concédallos seguindo as instruccións do fabricante.</li>
+            <li>Prema "Instalar"</li>
+            <li>Agarde a que o arquivo cargue e se aparece unha mensaxe emerxente de Google, con atención lea o texto e prema no botón que permita a instalación do aplicativo.</li>
+            <li>Se non houbo ningún problema, ao pouco tempo o aplicativo estará instalado. De haber algún problema na instalación, pode empregar a versión web.</li>
+          </ul>
+        </p>
+        <p class="important"><span>O aplicativo non está rexistrado na base de datos de Google Play polo que podería identificalo como un arquivo potencialmente perigoso. Se ten dúbidas ao respeto ou prefire instalar só aplicativos con certificado dixital de seguridade, pode empregar a versión web.</span></p>
+      </div>
+      <div>
+        <h3>Como activar ou desactivar as notificacións?</h3>
+        <p>De dispoñer un dispositivo Android 13 ou superior, primeiro, conceda ao aplicativo o permiso de envío de notificacións. A continuación, siga as instruccións:</p>
+        <ul class="num">
+          <li>
+            Volva ao inicio do aplicativo
+          </li>
+          <li>
+            Deslice até ver o apartado <q>Notificacións</q> e faga click nel. Esto faralle acceder ao xestor de notificacións.
+          </li>
+          <li>
+            Na esquina superior dereita atopará unha roda dentada. Faga click nela.
+          </li>
+          <li>
+            Active ou desactive as categorías que lle conveñan.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

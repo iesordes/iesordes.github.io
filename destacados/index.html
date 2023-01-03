@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+  <head>
+    <title>Inicio</title>
+    <style>
+
+@import url('https://fonts.cdnfonts.com/css/whitney-2');
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: whitney;
+  cursor: default;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #f5f5f5;
+}
+
+header {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+  padding: 30px 20px;
+}
+
+header svg {
+  width: 45px;
+  height: 45px;
+  stroke: #000;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1px;
+}
+
+header h1 {
+  color: #000;
+  font-size: 18px;
+}
+
+.content {
+  padding: 0px 15px;
+}
+
+.news {
+  background-color: #F5F2E7;
+  padding: 20px;
+  color: #fff;
+  border-radius: 20px;
+  background: rgb(38,102,207);
+  background: linear-gradient(347deg, rgb(9,9,121) 0%, rgb(38,102,207) 100%);
+}
+
+.news h3 {
+  color: #2666CF;
+  text-transform: uppercase;
+}
+
+.news p {
+  color: #000;
+}
+
+    </style>
+  </head>
+  <body onload="document.oncontextmenu = function () { return false }">
+    <header>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="opacity: 0">
+        <path d="m6 9 6 6 6-6H6Z"></path>
+      </svg>
+      <h1>Destacados</h1>
+      <a href="go:axuda">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"></path>
+          <path d="M12 17v.01"></path>
+          <path d="M12 13.497a1.5 1.5 0 0 1 1-1.5 2.6 2.6 0 1 0-3-4"></path>
+        </svg>
+      </a>
+    </header>
+    <div class="content">
+        <article class="news">
+            <span style="font-weight: bold;left: 10px;position: relative; text-align: center;">¡Vaia! Parece que non hai nada por aquí</span>
+        </article>
+    </div>
+  </body>
+</html>
